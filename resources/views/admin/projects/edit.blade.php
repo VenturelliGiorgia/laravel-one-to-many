@@ -15,6 +15,13 @@
         <textarea name="description" cols="30" rows="5" class="form-control">{{ $project->description }}</textarea>
     </div>
     <div class="mb-3">
+        <label class="form-label">Tipologia</label>
+        <select class="form-select" name="type_id">
+        <option></option>
+            {{-- <option value="{{$project->type->id}}">{{$project->type->name}}</option> --}}
+        </select>
+    </div>
+    <div class="mb-3">
         <label class="form-label">Immagine</label>
         <input type="file" class="form-control" name="cover_img" value="{{ $project->cover_img }}">
     </div>
