@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
+use App\Models\Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,9 +17,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
 
-        return view("admin.projects.index", compact('projects'));
+        $projects = Project::all();
+        $types = Type::all();
+        return view('admin.projects.index', compact('projects', 'types'));
     }
 
     /**
@@ -26,9 +28,10 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view("admin.projects.create");
+        $types = Type::all();
+        return view('admin.projects.create', compact('project', 'types'));
     }
 
     /**
@@ -73,7 +76,8 @@ class ProjectController extends Controller
     {
 
         $project = Project::find($id);
-        return view("admin.projects.edit", compact("project"));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
