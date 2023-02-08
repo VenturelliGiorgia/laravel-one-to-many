@@ -3,6 +3,18 @@
  @section('content')
 <h1 class="text-center mt-3">Nuovo Progetto</h1>
 
+@if ($errors->any())
+          <div class="alert alert-danger">
+            I dati inseriti non sono validi:
+
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+        
     <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
     @csrf 
 
@@ -16,8 +28,8 @@
             <select class="form-select" name="type_id">
                 <option></option>
                 @foreach ($types as $type)
-                                <option value="{{$type->id}}">{{$type->name}}</option>
-                            @endforeach
+                    <option value="{{$type->id}}">{{$type->name}}</option>
+                @endforeach
                 </select>
         </div>
         <div class="mb-3">
