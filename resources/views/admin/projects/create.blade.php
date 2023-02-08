@@ -12,12 +12,14 @@
             <input type="text" class="form-control" name="name">
         </div>
         <div class="mb-3">
-        <label class="form-label">Tipologia</label>
-        <select class="form-select" name="type_id">
-        <option></option>
-            {{-- <option value="{{$project->type->id}}">{{$project->type->name}}</option> --}}
-        </select>
-    </div>
+            <label class="form-label">Tipologia</label>
+            <select class="form-select" name="type_id">
+                <option></option>
+                @foreach ($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                </select>
+        </div>
         <div class="mb-3">
             <label class="form-label">Descrizione: </label>
             <textarea name="description" cols="30" rows="5" class="form-control"></textarea>

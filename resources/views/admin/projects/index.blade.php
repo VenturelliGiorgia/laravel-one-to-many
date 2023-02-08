@@ -12,7 +12,7 @@
         <tr>
             <th>Immagine</th>
             <th>Nome</th>
-            {{-- <th>type</th> --}}
+            <th>Tipologia</th>
             <th>Descrizione</th>
             <th>Link Github</th>
             <th>Visualizza</th>
@@ -28,7 +28,7 @@
                     <img style="width:60px" src="{{ asset('/storage/' . $project->cover_img) }}" alt=""></td>
                 </div>
             <td>{{$project->name }}</td>
-            {{-- <td>{{$project->type->name }}</td> --}}
+            <td>{{$project->type->name }}</td>
             <td>{{ Str::limit($project->description, 50) }}</td>
             {{-- <td> {{ $project->cover_img }}</td> --}}
              <td><a href="{{$project->github_link}}"> Link to GitHub </a></td>
@@ -46,7 +46,7 @@
                 <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="delete-form d-inline-block">
                     @csrf()
                     @method('delete')
-                    <button class="btn btn-danger">Deleta</button>
+                    <button class="btn btn-danger">Delete</button>
                 </form>
             </td>
         </tr>

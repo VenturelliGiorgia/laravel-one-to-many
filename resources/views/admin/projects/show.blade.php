@@ -17,10 +17,10 @@
                     <span class="fw-bold">Description:</span>
                     <span>{{ $project->description }}</span>
                 </li>
-                {{-- <li class="list-group-item">
+                <li class="list-group-item">
                     <span class="fw-bold">Type:</span>
                     <span>{{ $project->type->name }}</span>
-                </li> --}}
+                </li> 
                 <li class="list-group-item">
                     <span class="fw-bold">Link GitHub: </span>
                     <span>{{ $project->github_link }}</span>

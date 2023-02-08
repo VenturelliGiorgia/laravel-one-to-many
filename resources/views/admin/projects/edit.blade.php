@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Modifica progetto {{ $project->id }}</h1>
+<h1 class="mt-3">Modifica progetto {{ $project->id }}</h1>
 <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -18,7 +18,7 @@
         <label class="form-label">Tipologia</label>
         <select class="form-select" name="type_id">
         <option></option>
-            {{-- <option value="{{$project->type->id}}">{{$project->type->name}}</option> --}}
+        <option value="{{$project->type->id}}">{{$project->type->name}}</option> 
         </select>
     </div>
     <div class="mb-3">
